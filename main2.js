@@ -139,6 +139,21 @@ const coffee = {
   ishot: true,
 };
 for (const key in coffee) {
+  // コンテニューはスキップ（サイズをスキップ）
+  if (key === "size") {
+    console.log("continue");
+    continue;
+  }
   console.log(key);
   console.log(coffee[key]);
 }
+
+try {
+  console.log("try");
+  console.log(chocolate);
+} catch {
+  console.log("catch");
+} finally {
+  console.log("finally");
+}
+throw "error";
