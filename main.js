@@ -24,6 +24,7 @@ console.log(coffee.name);
 function add(num1, num2) {
   console.log(num1, num2);
   return num1 + num2;
+  console.log("hello");
 }
 const returnedValue = add(2, 4);
 console.log(returnedValue);
