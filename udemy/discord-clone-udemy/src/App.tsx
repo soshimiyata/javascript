@@ -17,30 +17,30 @@ function App() {
   const dispatch = useAppDispatch()
 
   useEffect(() => {
-    auth.onAuthStateChanged((loginUser) => {
-      console.log(loginUser)
-      if(loginUser) {
+    auth.onAuthStateChanged((authUser) => {
+      console.log(authUser)
+      if(authUser) {
         dispatch(
           login({
-            uid: loginUser.uid,
-            photo: loginUser.photoURL,
-            email: loginUser.email,
-            displayName: loginUser.displayName,
+            uid: authUser.uid,
+            photo: authUser.photoURL,
+            email: authUser.email,
+            displayName: authUser.displayName,
           })
         )
       } else {
-        dispatch(logout())
+        dispatch(logout());
       }
     })
-  }, [dispatch])
+  }, [dispatch]);
 
   return (
     <div className="App">
       {user ? (
         <>
-        <ErrorBoundary FallbackComponent={ErrorFallBack}>
+          <ErrorBoundary FallbackComponent={ErrorFallBack}>
           <Sidebar />
-        </ErrorBoundary>
+          </ErrorBoundary>
           <Chat />
         </>
       ) : (

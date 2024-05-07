@@ -13,7 +13,7 @@ import { addDoc, collection } from 'firebase/firestore';
 
 
 const Sidebar = () => {
-  const user = useAppSelector((state) => state.user);
+  const user = useAppSelector((state) => state.user.user);
   const { documents: channels } =useCollection("channels")
 
   const addChannel = async () => {
@@ -63,7 +63,7 @@ const Sidebar = () => {
 
             <div className="sidebarFooter">
               <div className="sidebarAccount">
-                <img src={user?.photo} alt="" onClick={() => auth.signOut()}/>
+                <img src={user?.photo} alt="account" onClick={() => auth.signOut()}/>
                 <div className="accountName">
                   <h4>{user?.displayName}</h4>
                   <span>#{user?.uid.substring(0,4)}</span>
